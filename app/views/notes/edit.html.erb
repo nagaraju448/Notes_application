@@ -1,0 +1,6 @@
+<h1>Editing Note</h1>
+
+<%= render 'form', note: @note %>
+
+<%= link_to 'Show', user_note_path(@user, @note) %> |
+<%= link_to 'Back', user_notes_path(@user) %>

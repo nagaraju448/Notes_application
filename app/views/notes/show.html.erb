@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Created User:</strong>
+  <%= @note.created_user.email %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @note.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @note.description %>
+</p>
+
+<%= link_to 'Edit', edit_user_note_path(@user, @note) %> |
+<%= link_to 'Back', user_notes_path(@user) %>
+
+<h2>Shared with:</h2>
+
+<table>
+  <thead>
+  <tr>
+    <th>User</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @shared_users.each do |user| %>
+    <tr>
+      <td><%= user.email %></td>
+      <td><%= link_to 'Remove', remove_shared_user_user_note_path(@user, @note, shared_user_id: user.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

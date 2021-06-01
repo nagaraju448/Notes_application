@@ -1,0 +1,11 @@
+<%= form_with(url: share_user_note_path(@user, @note), local: true) do |form| %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.select :shared_user_id, @share_users %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
